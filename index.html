@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des étudiants UNCHK</title>
+
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="header">
+
+        <div>
+            <small>ESPACE ADMINISTRATION</small>
+            <h1>Gestion des étudiants UNCHK</h1>
+            <p>Gérez les inscriptions et suivez les résultats</p> 
+            </div>
+        </div>
+
+        <div id="logo"> 🎓
+          
+        </div>
+
+</header>
+
+<div class="container">
+
+    <!-- STATISTIQUES -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total étudiants</h3>
+            <p id="totalEtudiants">1</p> 
+        </div>
+
+        <div class="card">
+            <h3>Moyenne générale</h3>
+            <p id="moyenneGeneral">20.00/20</p> 
+        </div>
+
+        <div class="card">
+            <h3>Étudiants admis</h3>
+            <p id="etudiantsAdmis">1</p> 
+        </div>
+
+    </div>
+
+    <!-- ACTIONS -->
+
+    <div class="actions">
+
+        <button onclick="trierParNote()">
+            Trier par note
+        </button>
+
+        <select id="filtre">
+            <option value="all">Tous</option>
+            <option value="admis">Admis</option>
+            <option value="echec">Échec</option>
+        </select>
+
+        <button onclick="exportCSV()">
+            Export CSV
+        </button>
+
+        <input
+            type="file"
+            id="importCSV"
+            accept=".csv"
+        >
+
+        <button id="themeBtn">
+            🌙 Mode sombre
+        </button>
+
+    </div>
+
+    <!-- FORMULAIRE -->
+
+    <div class="form-card">
+
+        <h2>Ajouter un étudiant</h2>
+
+        <div class="grid">
+
+            <div>
+                <label>Nom</label>
+                <input
+                    type="text"
+                    id="nom"
+                    placeholder="Ex : Kanouté"
+                >
+            </div>
+
+            <div>
+                <label>Prénom</label>
+                <input
+                    type="text"
+                    id="prenom"
+                    placeholder="Ex : Youssoupha"
+                >
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="youssoupha@gmail.com"
+                >
+            </div>
+
+            <div>
+                <label>Classe</label>
+                <input
+                    type="text"
+                    id="classe"
+                    placeholder="L1 Informatique"
+                >
+            </div>
+
+            <div>
+                <label>Note</label>
+                <input
+                    type="number"
+                    id="note"
+                    placeholder="15"
+                >
+            </div>
+
+        </div>
+
+        <button id="btnAjouter">
+            Ajouter l'étudiant
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+    <!-- TABLEAU -->
+
+    <div class="table-card">
+
+        <div class="table-header">
+
+            <h2>Liste des étudiants</h2>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Recherche rapide..." >
+        </div>
+
+        <div class="table-responsive">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Nom complet</th>
+                        <th>Email</th>
+                        <th>Classe</th>
+                        <th>Note</th>
+                        <th>Résultat</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="tableBody">
+
+                </tbody>
+
+            </table>
+
+            <div class="pagination">
+                <button id="prevPage">
+                    Précédent</button> 
+                    <span id="pageInfo"> Page 1</span>
+                <button id="nextPage">Suivant</button>
+            </div>
+        </div>
+    
+</div>
+
+<!-- MODALE MODIFICATION -->
+
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Modifier un étudiant</h2>
+
+        <input
+            type="text"
+            id="editNom"
+            placeholder="Nom">
+
+        <input
+            type="text"
+            id="editPrenom"
+            placeholder="Prénom">
+
+        <input
+            type="email"
+            id="editEmail"
+            placeholder="Email">
+        
+
+        <input
+            type="text"
+            id="editClasse"
+            placeholder="Classe">
+        
+
+        <input
+            type="number"
+            id="editNote"
+            placeholder="Note">
+        
+
+        <div class="modal-buttons">
+
+            <button id="saveEdit">
+                Enregistrer
+            </button>
+
+            <button id="closeModal">
+                Fermer
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
