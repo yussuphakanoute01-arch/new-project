@@ -282,6 +282,9 @@ document.getElementById("themeBtn").addEventListener("click", function () {
 ========================================================== */
 function exportCSV() {
     if (etudiants.length === 0) { alert("Aucun étudiant à exporter."); return; }
+   function importCSV() {
+    if (etudiants.length === 0) { alert("Aucun étudiant à importer."); return; }
+
 
     let csv = "Nom,Prenom,Email,Classe,Note\n";
     etudiants.forEach(e => {
